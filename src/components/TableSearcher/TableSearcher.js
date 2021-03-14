@@ -18,7 +18,7 @@ const TableSearcher = () => {
                 type="text"
 placeholder={'ПОИСК'}
 
-                onChange={valueChangeHandler}
+                onChange={(e)=>valueChangeHandler(e)}
                 value={value}
             />
         </div>
