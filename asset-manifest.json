@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/FIREguardSPB/table_demo/static/css/main.fd993143.chunk.css",
-    "main.js": "/FIREguardSPB/table_demo/static/js/main.ab825ace.chunk.js",
-    "main.js.map": "/FIREguardSPB/table_demo/static/js/main.ab825ace.chunk.js.map",
-    "runtime-main.js": "/FIREguardSPB/table_demo/static/js/runtime-main.735a34dc.js",
-    "runtime-main.js.map": "/FIREguardSPB/table_demo/static/js/runtime-main.735a34dc.js.map",
-    "static/js/2.37ab3cad.chunk.js": "/FIREguardSPB/table_demo/static/js/2.37ab3cad.chunk.js",
-    "static/js/2.37ab3cad.chunk.js.map": "/FIREguardSPB/table_demo/static/js/2.37ab3cad.chunk.js.map",
-    "index.html": "/FIREguardSPB/table_demo/index.html",
-    "static/css/main.fd993143.chunk.css.map": "/FIREguardSPB/table_demo/static/css/main.fd993143.chunk.css.map",
-    "static/js/2.37ab3cad.chunk.js.LICENSE.txt": "/FIREguardSPB/table_demo/static/js/2.37ab3cad.chunk.js.LICENSE.txt"
+    "main.css": "/table_demo/static/css/main.fd993143.chunk.css",
+    "main.js": "/table_demo/static/js/main.ab825ace.chunk.js",
+    "main.js.map": "/table_demo/static/js/main.ab825ace.chunk.js.map",
+    "runtime-main.js": "/table_demo/static/js/runtime-main.4500d23b.js",
+    "runtime-main.js.map": "/table_demo/static/js/runtime-main.4500d23b.js.map",
+    "static/js/2.37ab3cad.chunk.js": "/table_demo/static/js/2.37ab3cad.chunk.js",
+    "static/js/2.37ab3cad.chunk.js.map": "/table_demo/static/js/2.37ab3cad.chunk.js.map",
+    "index.html": "/table_demo/index.html",
+    "static/css/main.fd993143.chunk.css.map": "/table_demo/static/css/main.fd993143.chunk.css.map",
+    "static/js/2.37ab3cad.chunk.js.LICENSE.txt": "/table_demo/static/js/2.37ab3cad.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.735a34dc.js",
+    "static/js/runtime-main.4500d23b.js",
     "static/js/2.37ab3cad.chunk.js",
     "static/css/main.fd993143.chunk.css",
     "static/js/main.ab825ace.chunk.js"
