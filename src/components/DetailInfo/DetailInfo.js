@@ -14,10 +14,10 @@ const DetailInfo = ({state}) => {
                 <textarea defaultValue={state.description} />
             </p>
 
-            <p>Адрес проживания: <b>{state.address.streetAddress}</b></p>
-            <p>Город: <b>{state.address.city}</b></p>
-            <p>Провинция/штат: <b>{state.address.state}</b></p>
-            <p>Индекс: <b>{state.address.zip}</b></p>
+            {/*<p>Адрес проживания: <b>{state.address.streetAddress}</b></p>*/}
+            {/*<p>Город: <b>{state.address.city}</b></p>*/}
+            {/*<p>Провинция/штат: <b>{state.address.state}</b></p>*/}
+            {/*<p>Индекс: <b>{state.address.zip}</b></p>*/}
         </div>
     );
 };

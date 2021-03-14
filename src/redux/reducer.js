@@ -2,7 +2,6 @@ const ADD_DATA = "ADD_DATA"
 const SORT_DATA = "SORT_DATA"
 const DISPLAY_INFO = "DISPLAY_INFO"
 const CHANGE_PAGE = "CHANGE_PAGE"
-const SEARCH = "SEARCH"
 const defaultState = {
     isModeSelected: false,
     isLoading: true,
@@ -11,7 +10,6 @@ const defaultState = {
     sortField: 'id', // поле по умолчанию
     row: null,
     currentPage: 0,
-    search: null
 }
 
 export default function userReducer(state = defaultState, action) {
@@ -35,10 +33,6 @@ export default function userReducer(state = defaultState, action) {
             return {
                 ...state, currentPage: action.payload
             }
-        case SEARCH:
-            return {
-                ...state, search: action.payload, currentPage: 0
-            }
 
         default: return state
     }
@@ -49,4 +43,3 @@ export const addData = listData => ({type: ADD_DATA, payload: listData})
 export const sortingData = (orderedData) => ({type: SORT_DATA, payload: orderedData})
 export const displayDetailInfo = info => ({type: DISPLAY_INFO, payload: info})
 export const changeP = page => ({type: CHANGE_PAGE, payload: page})
-export const searchItem = item => ({type: SEARCH, payload: item})

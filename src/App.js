@@ -1,5 +1,5 @@
 import './App.css';
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useSelector, useDispatch} from 'react-redux'
 import Loader from './components/Loader/Loader'
 import Table from "./components/Table/Table";
@@ -8,7 +8,6 @@ import _ from 'lodash';
 import TableSearcher from "./components/TableSearcher/TableSearcher";
 import {sortingData, changeP} from "./redux/reducer";
 import ReactPaginate from 'react-paginate';
-
 
 function App() {
     const dispatch = useDispatch()
@@ -24,12 +23,13 @@ function App() {
     const pageChangeHandler = ({selected}) => {
         dispatch(changeP(selected))
     }
+    const [value, setValue] = useState('')
     const pageSize = 50; // количество записей на страницу
     const displayData = _.chunk(state.data, pageSize)[state.currentPage] //фильтруем данные для отображения
-
     const getFilteredData = () => {
-        const {data, search} = state
 
+        const data = state.data
+        const search = value
         if (!search) {
             return displayData
         }
@@ -41,16 +41,13 @@ function App() {
                 || item['phone'].toString().includes(search)
         })
     }
-    // const filteredData = getFilteredData()
-
-
     return (
 
         <div className="App">
             {state.isLoading ?
                 <Loader/> :
                 <>
-                    <TableSearcher/>
+                    <TableSearcher value={value} setValue={setValue}/>
                     <Table state={getFilteredData()} onSort={onSort}/>
                 </>
             }
