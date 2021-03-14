@@ -23,17 +23,15 @@ function App() {
     const pageChangeHandler = ({selected}) => {
         dispatch(changeP(selected))
     }
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState('') //для поиска по инпуту
     const pageSize = 50; // количество записей на страницу
     const displayData = _.chunk(state.data, pageSize)[state.currentPage] //фильтруем данные для отображения
     const getFilteredData = () => {
-
         const data = state.data
         const search = value
         if (!search) {
             return displayData
         }
-
         return data.filter(item => {
             return item['firstName'].toLowerCase().includes(search.toLowerCase())
                 || item['lastName'].toLowerCase().includes(search.toLowerCase())
@@ -49,19 +47,20 @@ function App() {
                 <>
                     <TableSearcher value={value} setValue={setValue}/>
                     <Table state={getFilteredData()} onSort={onSort}/>
+                    <ReactPaginate
+                        previousLabel={'<'}
+                        nextLabel={'>'}
+                        pageCount={2}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        onPageChange={pageChangeHandler}
+                        containerClassName={'pagination'}
+                        activeClassName={'active'}
+                        forcePage={state.currentPage}
+                    />
                 </>
             }
-            <ReactPaginate
-                previousLabel={'<'}
-                nextLabel={'>'}
-                pageCount={2}
-                marginPagesDisplayed={2}
-                pageRangeDisplayed={5}
-                onPageChange={pageChangeHandler}
-                containerClassName={'pagination'}
-                activeClassName={'active'}
-                forcePage={state.currentPage}
-            />
+
         </div>
     );
 }
