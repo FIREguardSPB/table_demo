@@ -1,0 +1,62 @@
+.table{
+    position: relative;
+    border: 2px solid;
+    background: lightgreen;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.thead_style{
+    position:fixed;
+    /*border: 2px solid;*/
+    background: #0C7CD5;
+    box-shadow:  10px 10px 10px rgba(0,0,0,0.5);
+}
+.body__table{
+    margin-top: 30px;
+}
+.th_id{
+min-width: 100px;
+    border: 2px solid;
+}
+:hover .th_id,.th_name, .th_surname, .th_mail, .th_phone{
+    cursor: pointer;
+}
+.th_name{
+    border: 2px solid;
+    min-width: 250px;
+}
+.th_surname{
+    min-width: 250px;
+    border: 2px solid;
+}
+.th_mail{
+    min-width: 250px;
+    border: 2px solid;
+}
+.th_phone{
+    min-width: 250px;
+    border: 2px solid;
+}
+
+.td_id{
+    min-width: 100px;
+    border: 2px solid;
+}
+.td_name{
+    border: 2px solid;
+    min-width: 250px;
+}
+.td_surname{
+    min-width: 250px;
+    border: 2px solid;
+}
+.td_mail{
+    min-width: 250px;
+    border: 2px solid;
+}
+.td_phone{
+    min-width: 250px;
+    border: 2px solid;
+}

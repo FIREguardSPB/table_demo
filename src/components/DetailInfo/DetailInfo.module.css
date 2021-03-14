@@ -1,0 +1,16 @@
+.modal {
+    position: fixed;
+    z-index: 10000;
+    margin: 10% 0 0 0;
+    border: 2px solid;
+    background-color: skyblue;
+    border-radius: 10px;
+}
+
+.close {
+    width: 50px;
+    height: 20px;
+    border: 2px solid;
+    margin: 2px auto;
+    background-color: #1e7e34;
+}
