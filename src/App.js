@@ -47,13 +47,13 @@ function App() {
     return (
 
         <div className="App">
-            {state.isLoading ?
-                <Loader/> :
-                <>
+            {/*{state.isLoading ?*/}
+            {/*    <Loader/> :*/}
+            {/*    <>*/}
                     <TableSearcher/>
                     <Table state={getFilteredData()} onSort={onSort}/>
-                </>
-            }
+            {/*    </>*/}
+            {/*}*/}
             <ReactPaginate
                 previousLabel={'<'}
                 nextLabel={'>'}
