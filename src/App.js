@@ -21,9 +21,9 @@ function App() {
         const payloadData = {sortField, sortType, orderedData}
         dispatch(sortingData(payloadData))
     }
-    const pageChangeHandler = ({selected}) => (
+    const pageChangeHandler = ({selected}) => {
         dispatch(changeP(selected))
-    )
+    }
     const pageSize = 50; // количество записей на страницу
     const displayData = _.chunk(state.data, pageSize)[state.currentPage] //фильтруем данные для отображения
 
