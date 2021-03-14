@@ -38,7 +38,7 @@ function App() {
             return item['firstName'].toLowerCase().includes(search.toLowerCase())
                 || item['lastName'].toLowerCase().includes(search.toLowerCase())
                 || item['email'].toLowerCase().includes(search.toLowerCase())
-                || item['phone'].toLowerCase().includes(search.toLowerCase())
+                || item['phone'].toString().includes(search)
         })
     }
     // const filteredData = getFilteredData()
@@ -47,17 +47,17 @@ function App() {
     return (
 
         <div className="App">
-            {/*{state.isLoading ?*/}
-            {/*    <Loader/> :*/}
-            {/*    <>*/}
+            {state.isLoading ?
+                <Loader/> :
+                <>
                     <TableSearcher/>
                     <Table state={getFilteredData()} onSort={onSort}/>
-            {/*    </>*/}
-            {/*}*/}
+                </>
+            }
             <ReactPaginate
                 previousLabel={'<'}
                 nextLabel={'>'}
-                pageCount={5}
+                pageCount={2}
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={5}
                 onPageChange={pageChangeHandler}
