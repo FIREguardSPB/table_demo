@@ -12,12 +12,9 @@ const Table = ({state, onSort}) => {
     const displayInfo = (item) => {
         dispatch(displayDetailInfo(item))
     } //отобразить всю инфу по клику
-
-
     return (
         <>
             <table className={`${styles.table}`}>
-
                 <thead className={`${styles.thead_style}`}>
                 <tr>
                     <th className={`${styles.th_id}`} onClick={onSort.bind(null, 'id')}>ID {sortName === 'id' ?
@@ -35,8 +32,6 @@ const Table = ({state, onSort}) => {
                 </tr>
                 </thead>
                 <tbody className={styles.body__table}>
-
-
                 {state && state.map(item => (
                     <tr key={item.id * Math.random()} onClick={(e) => displayInfo(item)}>
                         <td className={`${styles.td_id}`}>{item.id}</td>
@@ -46,11 +41,9 @@ const Table = ({state, onSort}) => {
                         <td className={`${styles.td_phone}`}>{item.phone}</td>
                     </tr>
                 ))}
-
                 </tbody>
-                {display ? <DetailInfo state={display}/> : null}
             </table>
-
+            {display ? <DetailInfo state={display}/> : null}
         </>
     );
 };

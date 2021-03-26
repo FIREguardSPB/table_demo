@@ -1,0 +1,12 @@
+.reload__container{
+    border: 2px solid black;
+    margin-left: 30px;
+    border-radius: 10%;
+}
+.reload__container:hover{
+    background-color: lightgreen;
+    cursor: pointer;
+}
+.reload__button{
+    text-align: center;
+}

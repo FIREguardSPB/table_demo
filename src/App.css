@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 .pagination{
   display: flex;
@@ -16,4 +17,8 @@ li{
 }
 .active{
   background-color: green;
+}
+.user__action__block{
+  display: flex;
+  justify-content: center;
 }

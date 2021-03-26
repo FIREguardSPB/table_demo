@@ -2,65 +2,49 @@ import './App.css';
 import {useEffect, useState} from "react";
 import {useSelector, useDispatch} from 'react-redux'
 import Loader from './components/Loader/Loader'
+import ReloadedModule from "./components/ReloadedModule/ReloadedModule";
 import Table from "./components/Table/Table";
 import {getUsers} from './actions/dataAddAction'
-import _ from 'lodash';
 import TableSearcher from "./components/TableSearcher/TableSearcher";
-import {sortingData, changeP} from "./redux/reducer";
+import {changeP} from "./redux/reducer";
 import ReactPaginate from 'react-paginate';
+import {itemSearch} from "./redux/selector";
+import {getFilteredData} from "./utils/sorting";
+import {onSort} from "./utils/sorting";
 
 function App() {
     const dispatch = useDispatch()
-    useEffect(() => dispatch(getUsers()), [])
     const state = useSelector(store => store)
-    const onSort = sortField => { //сортировка
-        const cloneData = state && state.data;
-        const sortType = state && state.sort === 'asc' ? 'desc' : 'asc';
-        const orderedData = _.orderBy(cloneData, sortField, sortType);
-        const payloadData = {sortField, sortType, orderedData}
-        dispatch(sortingData(payloadData))
-    }
     const pageChangeHandler = ({selected}) => {
         dispatch(changeP(selected))
     }
-    const [value, setValue] = useState('') //для поиска по инпуту
-    const pageSize = 50; // количество записей на страницу
-    const displayData = _.chunk(state.data, pageSize)[state.currentPage] //фильтруем данные для отображения
-    const getFilteredData = () => {
-        const data = state.data
-        const search = value
-        if (!search) {
-            return displayData
-        }
-        return data.filter(item => {
-            return item['firstName'].toLowerCase().includes(search.toLowerCase())
-                || item['lastName'].toLowerCase().includes(search.toLowerCase())
-                || item['email'].toLowerCase().includes(search.toLowerCase())
-                || item['phone'].toString().includes(search)
-        })
-    }
+    const [value, setValue] = useState('') //значение в инпуте
+    const itemsSearching = useSelector(itemSearch(value)) //результат фильтрации данных по инпуту
+    useEffect(() => dispatch(getUsers()), [])
     return (
-
         <div className="App">
-            {state.isLoading ?
-                <Loader/> :
-                <>
-                    <TableSearcher value={value} setValue={setValue}/>
-                    <Table state={getFilteredData()} onSort={onSort}/>
-                    <ReactPaginate
-                        previousLabel={'<'}
-                        nextLabel={'>'}
-                        pageCount={2}
-                        marginPagesDisplayed={2}
-                        pageRangeDisplayed={5}
-                        onPageChange={pageChangeHandler}
-                        containerClassName={'pagination'}
-                        activeClassName={'active'}
-                        forcePage={state.currentPage}
-                    />
-                </>
-            }
-
+            <>
+                {state.isLoading ?
+                    <Loader/> : <>
+                        <div className="user__action__block">
+                            <TableSearcher value={value} setValue={setValue}/>
+                            <ReloadedModule/>
+                        </div>
+                        <Table state={!value ? getFilteredData(state) : itemsSearching}
+                               onSort={onSort(state, dispatch)}/>
+                        <ReactPaginate
+                            previousLabel={'<'}
+                            nextLabel={'>'}
+                            pageCount={2}
+                            marginPagesDisplayed={2}
+                            pageRangeDisplayed={5}
+                            onPageChange={pageChangeHandler}
+                            containerClassName={'pagination'}
+                            activeClassName={'active'}
+                            forcePage={state.currentPage}/>
+                    </>
+                }
+            </>
         </div>
     );
 }
