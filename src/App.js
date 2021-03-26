@@ -19,7 +19,6 @@ function App() {
         dispatch(changeP(selected))
     }
     const [value, setValue] = useState('') //значение в инпуте
-    const itemsSearching = useSelector(itemSearch(value)) //результат фильтрации данных по инпуту
     useEffect(() => dispatch(getUsers()), [])
     return (
         <div className="App">
@@ -30,7 +29,7 @@ function App() {
                             <TableSearcher value={value} setValue={setValue}/>
                             <ReloadedModule/>
                         </div>
-                        <Table state={!value ? getFilteredData(state) : itemsSearching}
+                        <Table state={!value ? getFilteredData(state) : itemSearch(value)}
                                onSort={onSort(state, dispatch)}/>
                         <ReactPaginate
                             previousLabel={'<'}
