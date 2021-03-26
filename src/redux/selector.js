@@ -1,6 +1,6 @@
 import {createSelector} from "reselect";
 
-const selectAllData = state => state.reload === null ? state.data : state.reload;
+const selectAllData = state => state.data
 export const itemSearch = (search) => createSelector(
     selectAllData,
     items => items.filter(item => {
@@ -10,4 +10,5 @@ export const itemSearch = (search) => createSelector(
             || item['phone'].toString().includes(search)
     })
 );
+
 

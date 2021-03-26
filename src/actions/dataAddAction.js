@@ -1,4 +1,4 @@
-import {addData, reload} from "../redux/reducer";
+import {addData} from "../redux/reducer";
 import _ from "lodash";
 
 export const getUsers = () => (dispatch, getState) => {
@@ -13,6 +13,6 @@ export const reloadData = (sortType, sortField) => (dispatch) => {
     setTimeout(() => {
         fetch('https://mockend.com/FIREguardSPB/mockfetch/posts')
             .then(response => response.json())
-            .then(data => dispatch(reload(_.orderBy(data, sortField, sortType))))
+            .then(data => dispatch(addData(_.orderBy(data, sortField, sortType))))
     }, 1000)
 };
